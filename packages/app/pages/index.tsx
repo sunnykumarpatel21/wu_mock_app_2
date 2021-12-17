@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import Dashboard from "../module/dashboard/Dashboard";
-import LoginForm from "../module/login/Login-form";
+import Dashboard from "../module/dashboard/screens/Dashboard";
+import LoginForm from "../module/login/screens/Login-form";
 
 const Home: NextPage = () => {
     const [user, setUser] = useState(null);

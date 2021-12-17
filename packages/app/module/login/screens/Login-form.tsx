@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import { user, role } from "../../mock_data.json";
-import styles from "./login-form.module.css";
+import { user, role } from "../../../mock_data.json";
+import styles from "./styles/login-form.module.css";
 
 const LoginForm: NextPage = ({ updateUser }) => {
     const [loginFrom, setLoginForm] = useState({ email: "", password: "" });
