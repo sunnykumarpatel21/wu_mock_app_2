@@ -1,47 +1,58 @@
-import { NextPage } from 'next';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
+import { NextPage } from "next";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 const Header: NextPage = () => {
-	const router = useRouter();
+    const router = useRouter();
 
-	const handleLogout = () => {
-		localStorage.removeItem('user');
-		if (window.location.pathname === '/') router.reload();
-		else router.push('/');
-	};
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        if (window.location.pathname === "/") router.reload();
+        else router.push("/");
+    };
 
-	return (
-		<div>
-			<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-				<div className="container-fluid">
-					<a className="navbar-brand" href="/">
-						<Image src="/wuimg.jpg" alt="WesternUnion / WU" width={200} height={25} />
-					</a>
-					<button
-						className="navbar-toggler"
-						type="button"
-						data-bs-toggle="collapse"
-						data-bs-target="#navbarSupportedContent"
-						aria-controls="navbarSupportedContent"
-						aria-expanded="false"
-						aria-label="Toggle navigation"
-					>
-						<span className="navbar-toggler-icon" />
-					</button>
-					<div className="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-							{/* <li className="nav-item">
+    return (
+        <div>
+            <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
+                <div className='container-fluid'>
+                    <a className='navbar-brand' href='/'>
+                        <Image
+                            src='/wuimg.jpg'
+                            alt='WesternUnion / WU'
+                            width={200}
+                            height={25}
+                        />
+                    </a>
+                    <button
+                        className='navbar-toggler'
+                        type='button'
+                        data-bs-toggle='collapse'
+                        data-bs-target='#navbarSupportedContent'
+                        aria-controls='navbarSupportedContent'
+                        aria-expanded='false'
+                        aria-label='Toggle navigation'
+                    >
+                        <span className='navbar-toggler-icon' />
+                    </button>
+                    <div
+                        className='collapse navbar-collapse'
+                        id='navbarSupportedContent'
+                    >
+                        <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
+                            {/* <li className="nav-item">
 								<a className="nav-link active" aria-current="page" href="#">
 									Home
 								</a>
 							</li> */}
-							<li className="nav-item">
-								<div className="nav-link active" onClick={handleLogout}>
-									Logout
-								</div>
-							</li>
-							{/* <li className="nav-item dropdown">
+                            <li className='nav-item'>
+                                <div
+                                    className='nav-link active'
+                                    onClick={handleLogout}
+                                >
+                                    Logout
+                                </div>
+                            </li>
+                            {/* <li className="nav-item dropdown">
 								<a
 									className="nav-link dropdown-toggle"
 									href="#"
@@ -74,8 +85,8 @@ const Header: NextPage = () => {
 								</ul>
 							</li>
 						 */}
-						</ul>
-						{/* <form className='d-flex'>
+                        </ul>
+                        {/* <form className='d-flex'>
                             <input
                                 className='form-control me-2'
                                 type='search'
@@ -89,11 +100,11 @@ const Header: NextPage = () => {
                                 Search
                             </button>
                         </form> */}
-					</div>
-				</div>
-			</nav>
-		</div>
-	);
+                    </div>
+                </div>
+            </nav>
+        </div>
+    );
 };
 
 export default Header;

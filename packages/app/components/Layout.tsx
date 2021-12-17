@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Footer from "./Footer";
 import Header from "./Header";
-import LoginForm from "./Login-form";
+import LoginForm from "../module/login/Login-form";
 
 const Layout: NextPage = ({ children }) => {
     return (

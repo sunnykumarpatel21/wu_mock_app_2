@@ -1,35 +1,36 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import {user, role} from '../mock_data.json';
+import { user, role } from "../../mock_data.json";
+import styles from "./login-form.module.css";
 
-const LoginForm: NextPage = ({updateUser}) => {
-    const [loginFrom, setLoginForm] = useState({email: '', password:''});
+const LoginForm: NextPage = ({ updateUser }) => {
+    const [loginFrom, setLoginForm] = useState({ email: "", password: "" });
     const [loginError, setLoginError] = useState(false);
 
     const handleChange = (e) => {
         setLoginError(false);
-        setLoginForm({...loginFrom, [e.target.name]: e.target.value})
-    }
+        setLoginForm({ ...loginFrom, [e.target.name]: e.target.value });
+    };
 
-    const handleSubmit = () =>{
-        if(user && user.length>0){
-            let userObj = user.find((item)=> item.email === loginFrom.email);
-            if(userObj){
+    const handleSubmit = () => {
+        if (user && user.length > 0) {
+            let userObj = user.find((item) => item.email === loginFrom.email);
+            if (userObj) {
                 let roleId = userObj.role;
                 let userRole = role.find((item) => item.id == roleId);
-                if(userRole) userObj['userRole'] = userRole;
-                localStorage.setItem('user', JSON.stringify(userObj));
+                if (userRole) userObj["userRole"] = userRole;
+                localStorage.setItem("user", JSON.stringify(userObj));
                 updateUser(userObj);
-            }else{
+            } else {
                 setLoginError(true);
             }
         }
-    }
+    };
 
     return (
         <>
-            <div className="site-container">
-                <div className="site-card">
+            <div className='site-container'>
+                <div className='site-card'>
                     <div className='form-container login-form'>
                         <h2>Login Form</h2>
                         <div className='mb-4'>
@@ -42,9 +43,9 @@ const LoginForm: NextPage = ({updateUser}) => {
                             <input
                                 type='email'
                                 className='form-control'
-                                name="email"
+                                name='email'
                                 value={loginFrom.email}
-                                onChange={(e)=>handleChange(e)}
+                                onChange={(e) => handleChange(e)}
                             />
                         </div>
                         <div className='mb-4'>
@@ -57,9 +58,9 @@ const LoginForm: NextPage = ({updateUser}) => {
                             <input
                                 type='password'
                                 className='form-control'
-                                name="password"
+                                name='password'
                                 value={loginFrom.password}
-                                onChange={(e)=>handleChange(e)}
+                                onChange={(e) => handleChange(e)}
                             />
                         </div>
                         {/* <div className='mb-3 form-check'>
@@ -75,9 +76,9 @@ const LoginForm: NextPage = ({updateUser}) => {
                                 Check me out
                             </label>
                         </div> */}
-                        {loginError && 
-                            <p className="login-error">Invalid login details</p>
-                        }
+                        {loginError && (
+                            <p className='login-error'>Invalid login details</p>
+                        )}
                         <button
                             type='text'
                             className='btn btn-block btn-secondary'

@@ -1,0 +1,29 @@
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.dashboard-cards .dashboard-card {
+    min-height: 105px;
+    padding: 8px;
+    border: 1px solid #f1f1f1;
+    width: 47%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    text-align: center;
+    cursor: pointer;
+}
+.dashboard-cards .dashboard-card:hover {
+    background-color: #dedede;
+}
+.dashboard-cards .dashboard-card p {
+    margin-bottom: 0px;
+}
+@media (max-width: 600px) {
+    .dashboard-cards .dashboard-card {
+        margin-bottom: 16px;
+    }
+}

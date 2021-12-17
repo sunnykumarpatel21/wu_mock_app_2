@@ -1,0 +1,25 @@
+.sitecontainer {
+    max-width: 450px;
+    width: 100%;
+    padding: 16px;
+}
+
+.site-card {
+    padding: 2rem 1.5rem;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 3px rgba(0.1, 0, 0, 0.1);
+    background-color: white;
+    max-width: 100% !important;
+}
+
+.form-container {
+    padding: 15px;
+}
+.form-container.login-form {
+    min-height: 40vh;
+}
+.form-container.login-form .login-error {
+    color: red;
+    font-size: 15px;
+}
