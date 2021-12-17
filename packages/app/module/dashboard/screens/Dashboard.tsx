@@ -1,13 +1,6 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-
-const cardsList = [
-    { id: 1, name: "Dashboard", link: "/" },
-    { id: 2, name: "My Accounts", link: "/my_accounts" },
-    { id: 3, name: "Reports", link: "/reports" },
-    { id: 4, name: "Knowledge Center", link: "/" },
-    { id: 5, name: "Community Forum", link: "/" },
-];
+import { cardsList } from "../../../mock_data.json";
 
 const Dashboard: NextPage = ({ user }) => {
     const router = useRouter();

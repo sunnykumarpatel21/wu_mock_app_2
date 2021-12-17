@@ -96,5 +96,12 @@
 			"reportTypeId": "R3",
 			"date": "2021/12/15"
 		}
+	],
+	"cardsList": [
+		{ "id": 1, "name": "Dashboard", "link": "/" },
+		{ "id": 2, "name": "My Accounts", "link": "/my_accounts" },
+		{ "id": 3, "name": "Reports", "link": "/reports" },
+		{ "id": 4, "name": "Knowledge Center", "link": "/" },
+		{ "id": 5, "name": "Community Forum", "link": "/" }
 	]
 }
