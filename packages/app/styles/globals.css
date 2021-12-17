@@ -1,0 +1,138 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #f1f1f1 !important;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+.site-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0rem;
+    font-family: 'Poppins', sans-serif;
+}
+.site-container {
+    max-width: 450px;
+    width: 100%;
+    padding: 16px;
+}
+.site-card {
+    padding: 2rem 1.5rem;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 3px rgba(0.1, 0, 0, 0.1);
+    background-color: white;
+    max-width: 100% !important;
+}
+.site-card h2{
+    font-size: 22px;
+    margin-bottom: 24px;
+}
+.nav-item {
+    cursor: pointer;
+}
+.site-content-cards .site-content-card{
+    border: 1px solid #f1f1f1;
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 14px;
+}
+.site-content-cards .site-content-card h6 {
+    margin-bottom: 6px;
+    font-weight: 700;
+    font-size: 15px;
+    color: black;
+    text-transform: capitalize;
+}
+.site-content-cards .site-content-card h6 span {
+    font-weight: 300;
+    margin-left: 10px;
+}
+.site-content-cards .site-content-card p {
+    margin-bottom: 0px;
+    font-size: 15px;
+}
+@media (max-width: 600px) {
+    .site-content {
+        margin: 2rem 0rem;
+    }
+    .site-card {
+        padding: 2rem 1rem;
+    }
+    .site-card h2{
+        font-size: 19px;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Login css starts */
+.form-container {
+    padding: 15px;
+}
+.form-container.login-form {
+    min-height: 40vh;
+}
+.form-container.login-form .login-error {
+    color: red;
+    font-size: 15px;
+}
+/* Login css ends */
+
+
+/* Dashboard css starts */
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.dashboard-cards .dashboard-card {
+    min-height: 105px;
+    padding: 8px;
+    border: 1px solid #f1f1f1;
+    width: 47%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    text-align: center;
+    cursor: pointer;
+}
+.dashboard-cards .dashboard-card:hover {
+    background-color: #dedede;
+}
+.dashboard-cards .dashboard-card p {
+    margin-bottom: 0px;
+}
+@media (max-width: 600px) {
+    .dashboard-cards .dashboard-card {
+        margin-bottom: 16px;
+    }
+}
+/* Dashboard css ends */
+
+
+/* MyAccounts css starts */
+.accounts-content .searchBar {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #dedede;
+    padding: 0px 10px;
+    margin-bottom: 18px;
+}
+.accounts-content .account-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 24px;
+}
+.accounts-content .account-actions .action-btn {
+    padding: 5px 20px;
+    border-radius: 40px;
+}
+/* MyAccounts css ends */

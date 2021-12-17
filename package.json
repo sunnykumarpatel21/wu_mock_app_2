@@ -1,0 +1,15 @@
+{
+    "name": "wu_mock",
+    "private": true,
+    "devDependencies": {
+        "lerna": "^4.0.0"
+    },
+    "main": "index.tsx",
+    "license": "MIT",
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "start": "yarn --cwd packages/app dev"
+    }
+}

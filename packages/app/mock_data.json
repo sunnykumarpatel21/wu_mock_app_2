@@ -1,0 +1,100 @@
+{
+	"user": [
+		{
+			"id": "001",
+			"firstName": "Rahul",
+			"lastName": "Kondapally",
+			"email": "rahul.kondapally@test.com",
+			"role": "1",
+			"partnerId": "001"
+		},
+		{
+			"id": "002",
+			"firstName": "Sunny",
+			"lastName": " ",
+			"email": "sunny@test.com",
+			"role": "2",
+			"partnerId": "002"
+		}
+	],
+	"role": [
+		{
+			"id": "1",
+			"name": "SystemAdmin",
+			"permissions": []
+		},
+		{
+			"id": "2",
+			"name": "PartnerAdmin",
+			"permissions": [ "1", "2", "3", "4", "5", "6" ]
+		}
+	],
+	"permissions": [
+		{
+			"id": "1",
+			"name": "Make Non-Fanatical chanegs"
+		},
+		{
+			"id": "2",
+			"name": "Digital upload"
+		}
+	],
+	"partners": [
+		{
+			"id": "1",
+			"name": "Partner 1",
+			"managerName": "naveen",
+			"email": "hello@ge.com",
+			"address": {
+				"address1": "45 rue saint-urbain ",
+				"address2": "",
+				"city": "Montreal",
+				"zip": "H2v1V6",
+				"country": "Canada"
+			}
+		},
+		{
+			"id": "1",
+			"name": "Partner 2",
+			"managerName": "naveen2",
+			"email": "hello2@ge.com",
+			"adsress": {
+				"address1": "40 Gully St",
+				"address2": "",
+				"city": "Toronto",
+				"zip": "MVK1V6",
+				"country": ""
+			}
+		}
+	],
+	"reportsType": [
+		{
+			"id": "R1",
+			"name": "Commision Report"
+		},
+		{
+			"id": "R2",
+			"name": "Commision Report 1"
+		}
+	],
+	"reports": [
+		{
+			"name": "report 1",
+			"description": "hello",
+			"reportTypeId": "R1",
+			"date": "2021/12/15"
+		},
+		{
+			"name": "report 2",
+			"description": "hello",
+			"reportTypeId": "R2",
+			"date": "2021/12/15"
+		},
+		{
+			"name": "report 3",
+			"description": "hello",
+			"reportTypeId": "R3",
+			"date": "2021/12/15"
+		}
+	]
+}
