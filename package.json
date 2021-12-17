@@ -10,6 +10,8 @@
         "packages/*"
     ],
     "scripts": {
-        "start": "yarn --cwd packages/app dev"
+        "run-web": "lerna --scope=app run dev --stream",
+        "build-web": "lerna --scope=web run build --stream",
+        "bootstrap": "lerna bootstrap"  
     }
 }
