@@ -1,5 +1,11 @@
 {
     "appName": "Partner portal",
+    "Header":{
+        "logout":"Logout"
+    },
+    "Footer":{
+        "title":"Footer"
+    },
     "Login":{
         "title":"Login Form",
         "email":"Email address",

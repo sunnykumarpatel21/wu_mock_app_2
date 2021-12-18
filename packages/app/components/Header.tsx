@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { strings } from "../common/utils/utils";
 
 const Header: NextPage = () => {
     const router = useRouter();
@@ -20,7 +21,7 @@ const Header: NextPage = () => {
                             src='/wuimg.jpg'
                             alt='WesternUnion / WU'
                             width={200}
-                            height={25}
+                            height={40}
                         />
                     </a>
                     <button
@@ -49,7 +50,7 @@ const Header: NextPage = () => {
                                     className='nav-link active'
                                     onClick={handleLogout}
                                 >
-                                    Logout
+                                    {strings("Header.logout")}
                                 </div>
                             </li>
                             {/* <li className="nav-item dropdown">

@@ -1,9 +1,9 @@
 import { NextPage } from "next";
-
+import { strings } from "../common/utils/utils";
 const Footer: NextPage = () => {
     return (
         <div>
-            <h3>Footer</h3>
+            <h3>{strings("Footer.title")}</h3>
         </div>
     );
 };

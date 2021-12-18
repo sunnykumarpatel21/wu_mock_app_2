@@ -81,19 +81,19 @@
 		{
 			"name": "report 1",
 			"description": "hello",
-			"reportTypeId": "R1",
+			"reportType": "R1",
 			"date": "2021/12/15"
 		},
 		{
 			"name": "report 2",
 			"description": "hello",
-			"reportTypeId": "R2",
+			"reportType": "R2",
 			"date": "2021/12/15"
 		},
 		{
 			"name": "report 3",
 			"description": "hello",
-			"reportTypeId": "R3",
+			"reportType": "R3",
 			"date": "2021/12/15"
 		}
 	],
