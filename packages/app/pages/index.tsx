@@ -1,11 +1,13 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import { User } from "../common/types/Types";
+import { strings } from "../common/utils/utils";
 import Dashboard from "../module/dashboard/screens/Dashboard";
 import LoginForm from "../module/login/screens/Login-form";
 
 const Home: NextPage = () => {
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState<User|null>(null);
 
     useEffect(() => {
         let userObj = localStorage.getItem("user");
@@ -21,7 +23,7 @@ const Home: NextPage = () => {
     return (
         <div>
             <Head>
-                <title> WesternUnion//WU </title>
+                <title> {strings("appName")} </title>
                 <meta name='description' content='Landing page' />
             </Head>
             <div className='site-content'>
