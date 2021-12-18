@@ -11,3 +11,8 @@ export interface Card {
     name: string,
     link: string,
 }
+export interface Role{
+    id: string,
+    name: string,
+    permissions: string,
+}

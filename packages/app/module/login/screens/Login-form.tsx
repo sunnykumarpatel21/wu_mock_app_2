@@ -1,8 +1,9 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { user, userRoles } from "../../../mock_data.json";
 import { strings } from "../../../common/utils/utils";
 import styles from "./styles/login-form.module.css";
+import { Role, User } from "../../../common/types/Types";
 
 type Props = {
     updateUser: any
@@ -11,18 +12,18 @@ const LoginForm: NextPage<Props> = ({ updateUser }) => {
     const [loginFrom, setLoginForm] = useState({ email: "", password: "" });
     const [loginError, setLoginError] = useState(false);
 
-    const handleChange = (e) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setLoginError(false);
         setLoginForm({ ...loginFrom, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = () => {
         if (user && user.length > 0) {
-            let userObj = user.find((item) => item.email === loginFrom.email);
+            let userObj : User | undefined = user.find((item) => item.email === loginFrom.email);
             if (userObj) {
                 let roleId = userObj.role;
-                let userRole = userRoles.find((item) => item.id == roleId);
-                if (userRole) userObj["userRole"] = userRole;
+                //let userRole = userRoles.find((item) => item.id == roleId);
+                //if (userRole) userObj.role = userRole;
                 localStorage.setItem("user", JSON.stringify(userObj));
                 updateUser(userObj);
             } else {
