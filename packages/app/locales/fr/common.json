@@ -1,0 +1,9 @@
+{
+    "appName": "Partner portal",
+    "Login":{
+
+    },
+    "Dashboard":{
+        "greeting":"Hi"
+    }
+}

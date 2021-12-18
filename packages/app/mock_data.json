@@ -17,7 +17,7 @@
 			"partnerId": "002"
 		}
 	],
-	"role": [
+	"userRoles": [
 		{
 			"id": "1",
 			"name": "SystemAdmin",

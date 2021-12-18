@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { useState } from "react";
-import { user, role } from "../../../mock_data.json";
+import { user, userRoles } from "../../../mock_data.json";
 import styles from "./styles/login-form.module.css";
 
 const LoginForm: NextPage = ({ updateUser }) => {
@@ -17,7 +17,7 @@ const LoginForm: NextPage = ({ updateUser }) => {
             let userObj = user.find((item) => item.email === loginFrom.email);
             if (userObj) {
                 let roleId = userObj.role;
-                let userRole = role.find((item) => item.id == roleId);
+                let userRole = userRoles.find((item) => item.id == roleId);
                 if (userRole) userObj["userRole"] = userRole;
                 localStorage.setItem("user", JSON.stringify(userObj));
                 updateUser(userObj);
