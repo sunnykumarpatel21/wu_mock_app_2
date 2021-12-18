@@ -1,7 +1,11 @@
 {
     "appName": "Partner portal",
     "Login":{
-
+        "title":"Login Form",
+        "email":"Email address",
+        "password":"Password",
+        "submit":"Submit",
+        "loginErrorMessage":"Invalid login details"
     },
     "Dashboard":{
         "greeting":"Hi"

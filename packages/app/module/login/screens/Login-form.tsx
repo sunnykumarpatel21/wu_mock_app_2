@@ -1,9 +1,13 @@
 import type { NextPage } from "next";
 import { useState } from "react";
 import { user, userRoles } from "../../../mock_data.json";
+import { strings } from "../../../common/utils/utils";
 import styles from "./styles/login-form.module.css";
 
-const LoginForm: NextPage = ({ updateUser }) => {
+type Props = {
+    updateUser: any
+};
+const LoginForm: NextPage<Props> = ({ updateUser }) => {
     const [loginFrom, setLoginForm] = useState({ email: "", password: "" });
     const [loginError, setLoginError] = useState(false);
 
@@ -32,13 +36,13 @@ const LoginForm: NextPage = ({ updateUser }) => {
             <div className='site-container'>
                 <div className='site-card'>
                     <div className='form-container login-form'>
-                        <h2>Login Form</h2>
+                        <h2>{strings("Login.title")}</h2>
                         <div className='mb-4'>
                             <label
                                 htmlFor='exampleInputEmail1'
                                 className='form-label'
                             >
-                                Email address
+                               {strings("Login.email")}
                             </label>
                             <input
                                 type='email'
@@ -53,7 +57,7 @@ const LoginForm: NextPage = ({ updateUser }) => {
                                 htmlFor='exampleInputPassword1'
                                 className='form-label'
                             >
-                                Password
+                               {strings("Login.password")}
                             </label>
                             <input
                                 type='password'
@@ -77,14 +81,14 @@ const LoginForm: NextPage = ({ updateUser }) => {
                             </label>
                         </div> */}
                         {loginError && (
-                            <p className='login-error'>Invalid login details</p>
+                            <p className='login-error'>{strings("Login.loginErrorMessage")}</p>
                         )}
                         <button
                             type='text'
                             className='btn btn-block btn-secondary'
                             onClick={handleSubmit}
                         >
-                            Submit
+                            {strings("Login.submit")} 
                         </button>
                     </div>
                 </div>
