@@ -1,19 +1,19 @@
 {
     "appName": "Partner portal",
-    "Header":{
-        "logout":"Logout"
+    "Header": {
+        "logout": "Logout"
     },
-    "Footer":{
-        "title":"Footer"
+    "Footer": {
+        "title": "Footer"
     },
-    "Login":{
-        "title":"Login Form",
-        "email":"Email address",
-        "password":"Password",
-        "submit":"Submit",
-        "loginErrorMessage":"Invalid login details"
+    "Login": {
+        "title": "Login Form",
+        "email": "Email address",
+        "password": "Password",
+        "submit": "Submit",
+        "loginErrorMessage": "Invalid login details"
     },
-    "Dashboard":{
-        "greeting":"Hi"
+    "Dashboard": {
+        "greeting": "Hi"
     }
 }

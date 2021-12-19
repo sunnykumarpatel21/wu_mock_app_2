@@ -1,8 +1,9 @@
 import { NextPage } from "next";
-import { strings } from "../common/utils/utils";
+import { strings } from "../../common/utils/utils";
+import styles from "./footer.module.css";
 const Footer: NextPage = () => {
     return (
-        <div>
+        <div className={styles.footer}>
             <h3>{strings("Footer.title")}</h3>
         </div>
     );

@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { strings } from "../common/utils/utils";
+import { strings } from "../../common/utils/utils";
 
 const Header: NextPage = () => {
     const router = useRouter();
@@ -18,7 +18,7 @@ const Header: NextPage = () => {
                 <div className='container-fluid'>
                     <a className='navbar-brand' href='/'>
                         <Image
-                            src='/wuimg.jpg'
+                            src='/handshake.png'
                             alt='WesternUnion / WU'
                             width={200}
                             height={40}
