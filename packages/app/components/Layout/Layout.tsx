@@ -7,7 +7,7 @@ const Layout: NextPage = ({ children }) => {
         <div>
             <Header />
             {children}
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 };
