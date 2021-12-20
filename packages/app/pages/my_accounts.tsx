@@ -1,22 +1,36 @@
 import type { NextPage } from "next";
-import { user, partners } from "../mock_data.json";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { useSelector, RootStateOrAny } from "react-redux";
+
+import { user, partners, userRoles } from "../mock_data.json";
 
 const MyAccounts: NextPage = ({}) => {
-    const [loginUser, setLoginUser] = useState(null);
+    const router = useRouter();
+    const loginUser = useSelector((state: RootStateOrAny) => state.loginReducer.loginUser);
+
+    const [loginUserData, setLoginUserData] = useState(loginUser);
     const [searchText, setSearchText] = useState("");
     const [userData, setUserData] = useState(user);
     const [partnersData, setPartnersData] = useState(partners);
 
-    useEffect(() => {
-        let userObj = localStorage.getItem("user");
-        if (userObj) userObj = JSON.parse(userObj);
-        else userObj = null;
-        setLoginUser(userObj);
-    }, []);
+    useEffect(()=>{
+        if(loginUser) {
+            if(loginUser.role) {
+                let user = loginUser;
+                let roleId = loginUser.role;
+                let role = userRoles.find((item) => item.id == roleId);
+                if(role){
+                    user['userRole'] = role;
+                    setLoginUserData(user);
+                }
+            }
+        } else{
+            router.push("/login");
+        }
+    }, [loginUser]);
 
-    const handleSearch = (text) => {
+    const handleSearch = (text: any) => {
         let value = text.toLowerCase();
         let users = user.filter((item) => {
             return (
@@ -49,16 +63,16 @@ const MyAccounts: NextPage = ({}) => {
                             <button className='btn btn-outline-secondary btn-sm action-btn'>
                                 + Add User
                             </button>
-                            {loginUser &&
-                                loginUser.userRole &&
-                                loginUser.userRole.name == "SystemAdmin" && (
+                            {loginUserData &&
+                                loginUserData.userRole &&
+                                loginUserData.userRole.name == "SystemAdmin" && (
                                     <button className='btn btn-outline-secondary btn-sm btn-text action-btn ms-3'>
                                         + Add Partner
                                     </button>
                                 )}
-                            {loginUser &&
-                                loginUser.userRole &&
-                                loginUser.userRole.name == "SystemAdmin" && (
+                            {loginUserData &&
+                                loginUserData.userRole &&
+                                loginUserData.userRole.name == "SystemAdmin" && (
                                     <button className='btn btn-outline-secondary btn-sm btn-text action-btn ms-3'>
                                         + Add Role
                                     </button>
@@ -86,9 +100,9 @@ const MyAccounts: NextPage = ({}) => {
                                         </h6>
                                     </div>
                                 ))}
-                            {loginUser &&
-                                loginUser.userRole &&
-                                loginUser.userRole.name == "SystemAdmin" && (
+                            {loginUserData &&
+                                loginUserData.userRole &&
+                                loginUserData.userRole.name == "SystemAdmin" && (
                                     <div>
                                         {partnersData &&
                                             partnersData.length > 0 &&

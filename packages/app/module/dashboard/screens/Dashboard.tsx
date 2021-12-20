@@ -5,10 +5,11 @@ import { cardsList } from "../../../mock_data.json";
 import { strings } from "../../../common/utils/utils";
 
 type Props = {
-    user: User;
+    user: User
 };
 const Dashboard: NextPage<Props> = ({ user }) => {
     const router = useRouter();
+    
     const handleCardClick = (card: Card) => {
         router.push(card.link);
     };
@@ -19,10 +20,7 @@ const Dashboard: NextPage<Props> = ({ user }) => {
                 <div className='site-card'>
                     {user && (
                         <div className='dashboard-content'>
-                            <h2>
-                                {strings("Dashboard.greeting")} {user.firstName}
-                                !
-                            </h2>
+                            <h2>{strings('Dashboard.greeting')} {user.firstName}!</h2>
                             <div className='dashboard-cards'>
                                 {cardsList.map((card, index) => (
                                     <div
