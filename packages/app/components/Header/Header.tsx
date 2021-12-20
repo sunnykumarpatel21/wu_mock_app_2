@@ -37,10 +37,10 @@ const Header: NextPage = () => {
                     </button>
 
                     <div
-                        className='collapse navbar-collapse'
+                        className='collapse navbar-collapse '
                         id='navbarSupportedContent'
                     >
-                        <ul className='navbar-nav ms-auto'>
+                        <ul className='navbar-nav ms-auto text-center'>
                             <li className='nav-item active'>
                                 <a className='nav-link' href='#'>
                                     <i className='fa fa-search' />
