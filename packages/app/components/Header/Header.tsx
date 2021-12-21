@@ -22,7 +22,7 @@ const Header: NextPage = () => {
                         className='navbar-brand'
                         onClick={() => router.push("/")}
                     >
-                        <h3>WesternUnion / WU</h3>
+                        <h3>Partner Portal</h3>
                     </div>
                     <button
                         className='navbar-toggler'
