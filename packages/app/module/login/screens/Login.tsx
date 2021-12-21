@@ -1,30 +1,36 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { ChangeEvent, useState } from "react";
-import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
+import { useSelector, useDispatch, RootStateOrAny } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import { strings } from "../common/utils/utils";
-import {  verifyUserLogin } from '../store';
+import { strings } from "../../../common/utils/utils";
+import { verifyUserLogin } from "../../../store";
 
 type Props = {
-    updateUser: any
+    updateUser: any;
 };
 
 const LoginForm: NextPage<Props> = () => {
-    const router = useRouter();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const [loginFrom, setLoginForm] = useState({ email: "", password: "" });
-    const loginUser = useSelector((state: RootStateOrAny) => state.loginReducer.loginUser);
-    const loginError = useSelector((state: RootStateOrAny) => state.loginReducer.loginError);
+    const loginUser = useSelector(
+        (state: RootStateOrAny) => state.loginReducer.loginUser
+    );
+    const loginError = useSelector(
+        (state: RootStateOrAny) => state.loginReducer.loginError
+    );
 
-    useEffect(()=>{
-        if(loginUser) {
-            router.replace("/");
+    useEffect(() => {
+        if (loginUser) {
+            navigate("/");
+        } else {
+            navigate("/login");
         }
-    }, [loginUser])
+    }, [loginUser]);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setLoginForm({ ...loginFrom, [e.target.name]: e.target.value });
@@ -50,7 +56,7 @@ const LoginForm: NextPage<Props> = () => {
                                     htmlFor='exampleInputEmail1'
                                     className='form-label'
                                 >
-                                {strings("Login.email")}
+                                    {strings("Login.email")}
                                 </label>
                                 <input
                                     type='email'
@@ -65,7 +71,7 @@ const LoginForm: NextPage<Props> = () => {
                                     htmlFor='exampleInputPassword1'
                                     className='form-label'
                                 >
-                                {strings("Login.password")}
+                                    {strings("Login.password")}
                                 </label>
                                 <input
                                     type='password'
@@ -89,14 +95,16 @@ const LoginForm: NextPage<Props> = () => {
                                 </label>
                             </div> */}
                             {loginError && (
-                                <p className='login-error'>{strings("Login.loginErrorMessage")}</p>
+                                <p className='login-error'>
+                                    {strings("Login.loginErrorMessage")}
+                                </p>
                             )}
                             <button
                                 type='text'
                                 className='btn btn-block btn-secondary'
                                 onClick={handleSubmit}
                             >
-                                {strings("Login.submit")} 
+                                {strings("Login.submit")}
                             </button>
                         </div>
                     </div>
