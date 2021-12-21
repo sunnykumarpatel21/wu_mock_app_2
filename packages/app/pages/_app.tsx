@@ -1,11 +1,14 @@
-import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import "bootstrap/dist/css/bootstrap.css";
 import Layout from "../components/Layout/Layout";
+import { wrapper } from "../store";
+
+import "bootstrap/dist/css/bootstrap.css";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
+        // suppressHydrationWarning
         <div>
             <Head>
                 <title> WesternUnion//WU </title>
@@ -15,27 +18,35 @@ function MyApp({ Component, pageProps }: AppProps) {
                 />
                 <link rel='icon' href='/favicon.ico' />
                 <link rel='preconnect' href='https://fonts.googleapis.com' />
-                <link rel='preconnect' href='https://fonts.gstatic.com' />
                 <link
-                    href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200;1,300&display=swap'
+                    rel='preconnect'
+                    href='https://fonts.gstatic.com'
+                    crossorigin
+                />
+                <link
+                    href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap'
                     rel='stylesheet'
                 ></link>
+                <script
+                    src='https://code.jquery.com/jquery-3.2.1.slim.min.js'
+                    integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN'
+                    crossorigin='anonymous'
+                ></script>
+                <script
+                    src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'
+                    integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q'
+                    crossorigin='anonymous'
+                ></script>
+                <script
+                    src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+                    integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl'
+                    crossorigin='anonymous'
+                ></script>
+
                 <link
                     rel='stylesheet'
-                    href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'
-                    integrity='sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn'
-                    crossOrigin='anonymous'
-                />
-                <script
-                    src='https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js'
-                    integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj'
-                    crossOrigin='anonymous'
-                />
-                <script
-                    src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js'
-                    integrity='sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF'
-                    crossOrigin='anonymous'
-                />
+                    href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+                ></link>
             </Head>
             <Layout>
                 <Component {...pageProps} />
@@ -44,4 +55,4 @@ function MyApp({ Component, pageProps }: AppProps) {
     );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
