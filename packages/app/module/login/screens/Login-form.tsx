@@ -4,28 +4,32 @@ import { user, userRoles } from "../../../mock_data.json";
 import { strings } from "../../../common/utils/utils";
 import styles from "./styles/login-form.module.css";
 import { Role, User } from "../../../common/types/Types";
+import useSWR from 'swr'
 
 type Props = {
     updateUser: any
 };
+const fetcher = (url:string) => fetch(url).then((res) => res.json())
+
 const LoginForm: NextPage<Props> = ({ updateUser }) => {
     const [loginFrom, setLoginForm] = useState({ email: "", password: "" });
     const [loginError, setLoginError] = useState(false);
-
+    const { data, error } = useSWR('/api/mockapis', fetcher)
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setLoginError(false);
         setLoginForm({ ...loginFrom, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = () => {
+       console.log(data,error);
         if (user && user.length > 0) {
             let userObj : User | undefined = user.find((item) => item.email === loginFrom.email);
             if (userObj) {
                 let roleId = userObj.role;
                 //let userRole = userRoles.find((item) => item.id == roleId);
                 //if (userRole) userObj.role = userRole;
-                localStorage.setItem("user", JSON.stringify(userObj));
-                updateUser(userObj);
+                //localStorage.setItem("user", JSON.stringify(userObj));
+                //updateUser(userObj);
             } else {
                 setLoginError(true);
             }

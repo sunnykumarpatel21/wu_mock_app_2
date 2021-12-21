@@ -46,3 +46,13 @@ export interface Report {
     reportType: string;
     date: string;
 }
+
+
+export interface UserResposne {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    role: Role;
+    partner: Partner;
+}
