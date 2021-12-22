@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginForm from "../module/login/screens/Login";
 import MyAccounts from "../module/MyAccount/screeen/my_accounts";
 import Reports from "../module/Report/screen/reports";
+import CommunityForum from "../module/communityForum/screen/CommunityForum";
+import KnowledgeCenter from "../module/knowledgeCenter/screen/KnowledgeCenter";
 
 const Home: NextPage = () => {
     const loginUser = useSelector(
@@ -35,6 +37,14 @@ const Home: NextPage = () => {
                         />
                         <Route path='/myaccount' element={<MyAccounts />} />
                         <Route path='/reports' element={<Reports />} />
+                        <Route
+                            path='/communityforum'
+                            element={<CommunityForum />}
+                        />
+                        <Route
+                            path='/knowledgecenter'
+                            element={<KnowledgeCenter />}
+                        />
                     </Routes>
                 </Router>
             </div>

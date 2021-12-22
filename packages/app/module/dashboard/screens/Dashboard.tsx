@@ -23,8 +23,12 @@ const Dashboard: NextPage<Props> = ({ user }) => {
     const handleCardClick = (card: Card) => {
         if (card.name === "My Accounts") {
             navigate("/myaccount");
-        } else {
+        } else if (card.name === "Reports") {
             navigate("/reports");
+        } else if (card.name === "Community Forum") {
+            navigate("/communityforum");
+        } else {
+            navigate("/knowledgecenter");
         }
     };
 
