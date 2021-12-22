@@ -1,65 +1,63 @@
-import type { NextPage } from "next";
-import { useRouter } from "next/router";
-import { Card, User } from "../../../common/types/Types";
-import { cardsList } from "../../../mock_data.json";
-import { strings } from "../../../common/utils/utils";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { NextPage } from 'next';
+import { User } from '../../../common/types/Types';
+import { cardsList } from '../../../mock_data.json';
+import { strings } from '../../../common/utils/utils';
+import common from '../../../locales/en/common.json';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import Layout from '../../../components/Layout/Layout';
 
 type Props = {
-    user: User;
+	user: User;
 };
 
 const Dashboard: NextPage<Props> = ({ user }) => {
-    const router = useRouter();
-    const navigate = useNavigate();
+	const navigate = useNavigate();
 
-    useEffect(() => {
-        if (user === null) {
-            navigate("/login");
-        }
-    }, []);
+	useEffect(
+		() => {
+			if (!user) {
+				navigate('/login');
+			}
+		},
+		[ user ]
+	);
 
-    const handleCardClick = (card: Card) => {
-        if (card.name === "My Accounts") {
-            navigate("/myaccount");
-        } else if (card.name === "Reports") {
-            navigate("/reports");
-        } else if (card.name === "Community Forum") {
-            navigate("/communityforum");
-        } else {
-            navigate("/knowledgecenter");
-        }
-    };
+	const handleCardClick = (link: any) => {
+		navigate(link);
+	};
 
-    return (
-        <div>
-            {user ? (
-                <div className='site-container'>
-                    <div className='site-card'>
-                        <div className='dashboard-content'>
-                            <h2>
-                                {strings("Dashboard.greeting")} {user.firstName}
-                                !
-                            </h2>
+	return (
+		<Layout>
+			<div className="site-content">
+				{user ? (
+					<div className="site-container">
+						<div className="site-card">
+							<div className="dashboard-content">
+								<h2>
+									{/* {strings("Dashboard.greeting")} {user.firstName}! */}
+									{common.Dashboard.greeting} {user.firstName}!
+								</h2>
 
-                            <div className='dashboard-cards'>
-                                {cardsList.map((card, index) => (
-                                    <div
-                                        className='dashboard-card'
-                                        key={index}
-                                        onClick={() => handleCardClick(card)}
-                                    >
-                                        <p>{card.name}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            ) : null}
-        </div>
-    );
+								<div className="dashboard-cards">
+									{cardsList.map((card, index) => (
+										<div
+											className="dashboard-card"
+											key={index}
+											card-id={card.id}
+											onClick={() => handleCardClick(card.link)}
+										>
+											<p>{card.name}</p>
+										</div>
+									))}
+								</div>
+							</div>
+						</div>
+					</div>
+				) : null}
+			</div>
+		</Layout>
+	);
 };
 
 export default Dashboard;

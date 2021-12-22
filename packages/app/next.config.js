@@ -1,16 +1,17 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-    reactStrictMode: true,
+	reactStrictMode: true
 };
-const nextTranslate = require("next-translate");
+const nextTranslate = require('next-translate');
 module.exports = nextTranslate();
+
 module.exports = {
-    async rewrites() {
-        return [
-            {
-                source: "/:any*",
-                destination: "/",
-            },
-        ];
-    },
+	async rewrites() {
+		return [
+			{
+				source: '/:any*',
+				destination: '/'
+			}
+		];
+	}
 };

@@ -108,10 +108,10 @@
 		}
 	],
 	"cardsList": [
-		{ "id": 1, "name": "Dashboard", "link": "/" },
-		{ "id": 2, "name": "My Accounts", "link": "/my_accounts" },
-		{ "id": 3, "name": "Reports", "link": "/reports" },
-		{ "id": 4, "name": "Knowledge Center", "link": "/" },
-		{ "id": 5, "name": "Community Forum", "link": "/" }
+		{ "id": "dashboard", "name": "Dashboard", "link": "/" },
+		{ "id": "my_accounts", "name": "My Accounts", "link": "/my_accounts" },
+		{ "id": "reports", "name": "Reports", "link": "/reports" },
+		{ "id": "knowledge_center", "name": "Knowledge Center", "link": "/knowledge_center" },
+		{ "id": "community_forum", "name": "Community Forum", "link": "/community_forum" }
 	]
 }

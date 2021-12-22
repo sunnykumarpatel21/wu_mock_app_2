@@ -3,7 +3,7 @@ import { useSelector, RootStateOrAny } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../../../components/Layout/Layout';
 
-const KnowledgeCenter = () => {
+const CommunityForum = () => {
 	const navigate = useNavigate();
 	const loginUser = useSelector((state: RootStateOrAny) => state.loginReducer.loginUser);
 
@@ -29,4 +29,4 @@ const KnowledgeCenter = () => {
 	);
 };
 
-export default KnowledgeCenter;
+export default CommunityForum;

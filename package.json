@@ -1,17 +1,16 @@
 {
-    "name": "wu_mock",
-    "private": true,
-    "devDependencies": {
-        "lerna": "^4.0.0"
-    },
-    "main": "index.tsx",
-    "license": "MIT",
-    "workspaces": [
-        "packages/*"
-    ],
-    "scripts": {
-        "run-web": "lerna --scope=app run dev --stream",
-        "build-web": "lerna --scope=web run build --stream",
-        "bootstrap": "lerna bootstrap"  
-    }
+	"name": "wu_mock",
+	"private": true,
+	"devDependencies": {
+		"lerna": "^4.0.0"
+	},
+	"main": "index.tsx",
+	"license": "MIT",
+	"workspaces": [ "packages/*" ],
+	"scripts": {
+		"run-web": "lerna --scope=app run dev --stream",
+		"run-test": "lerna --scope=app run cypress --stream",
+		"build-web": "lerna --scope=web run build --stream",
+		"bootstrap": "lerna bootstrap"
+	}
 }

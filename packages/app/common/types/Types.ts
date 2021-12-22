@@ -7,7 +7,7 @@ export interface User {
     partnerId: string;
 }
 export interface Card {
-    id: number;
+    id: string;
     name: string;
     link: string;
 }
