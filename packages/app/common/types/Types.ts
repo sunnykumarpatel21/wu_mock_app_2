@@ -53,7 +53,7 @@ export interface UserResposne {
     lastName: string;
     email: string;
     role: Role;
-    partner: Partner;
+    partner?: Partner;
 }
 export interface SagaResult<T = any > {
     success: boolean
