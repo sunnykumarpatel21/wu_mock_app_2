@@ -53,6 +53,6 @@ export interface UserResposne {
     firstName: string;
     lastName: string;
     email: string;
-    role: Role;
-    partner: Partner;
+    role?: Role|undefined;
+    partner?: Partner|undefined;
 }    

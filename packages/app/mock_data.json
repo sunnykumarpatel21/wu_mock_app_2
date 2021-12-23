@@ -6,7 +6,8 @@
 			"lastName": "Kondapally",
 			"email": "rahul.kondapally@test.com",
 			"role": "1",
-			"partnerId": "001"
+			"partnerId": "001",
+			"avatar": "https://github.com/shuding.png"
 		},
 		{
 			"id": "002",
@@ -14,7 +15,8 @@
 			"lastName": " ",
 			"email": "sunny@test.com",
 			"role": "2",
-			"partnerId": "002"
+			"partnerId": "002",
+			"avatar": "https://github.com/shuding.png"
 		}
 	],
 	"userRoles": [

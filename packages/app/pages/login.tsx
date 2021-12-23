@@ -1,12 +1,14 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import { useEffect } from "react";
 import { ChangeEvent, useState } from "react";
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
+import useUser from "../common/data/use-user";
+import { login } from "../common/libs/api-user";
 
 import { strings } from "../common/utils/utils";
-import {  verifyUserLogin } from '../store';
+import { verifyUserLogin } from '../store';
 
 type Props = {
     updateUser: any
@@ -15,25 +17,29 @@ type Props = {
 const LoginForm: NextPage<Props> = () => {
     const router = useRouter();
     const dispatch = useDispatch();
-
+    const { loggedIn, mutate, user } = useUser();
     const [loginFrom, setLoginForm] = useState({ email: "", password: "" });
-    const loginUser = useSelector((state: RootStateOrAny) => state.loginReducer.loginUser);
+    //const loginUser = useSelector((state: RootStateOrAny) => state.loginReducer.loginUser);
     const loginError = useSelector((state: RootStateOrAny) => state.loginReducer.loginError);
 
-    useEffect(()=>{
-        if(loginUser) {
-            router.replace("/");
-        }
-    }, [loginUser])
+
+    useEffect(() => {
+        console.log("useEffect ",loggedIn,user)
+        if (loggedIn) Router.replace("/home");
+    }, [loggedIn]);
+
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setLoginForm({ ...loginFrom, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = () => {
-        dispatch(verifyUserLogin(loginFrom));
+    const onLoginSubmit = () => {
+        if (loginFrom.email && loginFrom.password) {
+            login(loginFrom);
+            mutate();
+        }
     };
-
+    if (loggedIn) return <> Redirecting.... </>;
     return (
         <div>
             <Head>
@@ -44,13 +50,13 @@ const LoginForm: NextPage<Props> = () => {
                 <div className='site-container'>
                     <div className='site-card'>
                         <div className='form-container login-form'>
-                            <h2>{strings("Login.title")}</h2>
+                            <h2>{strings("Login.title")} Signed in as: {user?.name}</h2>
                             <div className='mb-4'>
                                 <label
                                     htmlFor='exampleInputEmail1'
                                     className='form-label'
                                 >
-                                {strings("Login.email")}
+                                    {strings("Login.email")}
                                 </label>
                                 <input
                                     type='email'
@@ -65,7 +71,7 @@ const LoginForm: NextPage<Props> = () => {
                                     htmlFor='exampleInputPassword1'
                                     className='form-label'
                                 >
-                                {strings("Login.password")}
+                                    {strings("Login.password")}
                                 </label>
                                 <input
                                     type='password'
@@ -92,11 +98,11 @@ const LoginForm: NextPage<Props> = () => {
                                 <p className='login-error'>{strings("Login.loginErrorMessage")}</p>
                             )}
                             <button
-                                type='text'
+                                type='button'
                                 className='btn btn-block btn-secondary'
-                                onClick={handleSubmit}
+                                onClick={onLoginSubmit}
                             >
-                                {strings("Login.submit")} 
+                                {strings("Login.submit")}
                             </button>
                         </div>
                     </div>

@@ -1,41 +1,33 @@
 import type { NextPage } from "next";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 import { user, userRoles } from "../../../mock_data.json";
 import { strings } from "../../../common/utils/utils";
 import styles from "./styles/login-form.module.css";
 import { Role, User } from "../../../common/types/Types";
 import useSWR from 'swr'
+import useUser from "../../../common/data/use-user";
+import { login } from "../../../common/libs/auth";
+
 
 type Props = {
     updateUser: any
 };
-const fetcher = (url:string) => fetch(url).then((res) => res.json())
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 const LoginForm: NextPage<Props> = ({ updateUser }) => {
     const [loginFrom, setLoginForm] = useState({ email: "", password: "" });
     const [loginError, setLoginError] = useState(false);
-    const { data, error } = useSWR('/api/mockapis', fetcher)
+    const { user, mutate, loggedOut } = useUser();
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         setLoginError(false);
         setLoginForm({ ...loginFrom, [e.target.name]: e.target.value });
     };
-
-    const handleSubmit = () => {
-       console.log(data,error);
-        if (user && user.length > 0) {
-            let userObj : User | undefined = user.find((item) => item.email === loginFrom.email);
-            if (userObj) {
-                let roleId = userObj.role;
-                //let userRole = userRoles.find((item) => item.id == roleId);
-                //if (userRole) userObj.role = userRole;
-                //localStorage.setItem("user", JSON.stringify(userObj));
-                //updateUser(userObj);
-            } else {
-                setLoginError(true);
-            }
+    // if logged in, redirect to the dashboard
+    useEffect(() => {
+        if (user && !loggedOut) {
+            //Router.replace("/dashboard");
         }
-    };
-
+    }, [user, loggedOut]);
     return (
         <>
             <div className='site-container'>
@@ -47,7 +39,7 @@ const LoginForm: NextPage<Props> = ({ updateUser }) => {
                                 htmlFor='exampleInputEmail1'
                                 className='form-label'
                             >
-                               {strings("Login.email")}
+                                {strings("Login.email")}
                             </label>
                             <input
                                 type='email'
@@ -62,7 +54,7 @@ const LoginForm: NextPage<Props> = ({ updateUser }) => {
                                 htmlFor='exampleInputPassword1'
                                 className='form-label'
                             >
-                               {strings("Login.password")}
+                                {strings("Login.password")}
                             </label>
                             <input
                                 type='password'
@@ -89,11 +81,11 @@ const LoginForm: NextPage<Props> = ({ updateUser }) => {
                             <p className='login-error'>{strings("Login.loginErrorMessage")}</p>
                         )}
                         <button
-                            type='text'
+                            type='button'
                             className='btn btn-block btn-secondary'
-                            onClick={handleSubmit}
+                            onClick={() => login(loginFrom)}
                         >
-                            {strings("Login.submit")} 
+                            {strings("Login.submit")}
                         </button>
                     </div>
                 </div>
