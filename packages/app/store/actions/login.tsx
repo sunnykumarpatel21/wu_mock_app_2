@@ -1,18 +1,18 @@
 import { User } from "../../common/types/Types";
-import * as type from "../types";
+import { Action } from "../types";
 
-export const verifyUserLogin = (data: any) => ({
-    type: type.VERIFY_USER_LOGIN,
+export const verifyUserLogin = (data: { email: '', password: '' }): Action => ({
+    type: "VERIFY_USER_LOGIN",
     payload: data,
 });
 
-export const setVerifyUserLogin = (data: User) => ({
-    type: type.SET_VERIFY_USER_LOGIN,
+export const setVerifyUserLogin = (data: User): Action => ({
+    type: "SET_VERIFY_USER_LOGIN",
     payload: data,
 });
 
-export const logoutUser = () => {
+export const logoutUser = (): Action => {
     return {
-        type: type.LOGOUT_USER,
+        type: "LOGOUT_USER",
     };
 };

@@ -55,3 +55,10 @@ export interface UserResposne {
     role: Role;
     partner: Partner;
 }
+export interface SagaResult<T = any > {
+    success: boolean
+    data: T 
+    error?: Error
+    errors?: Error
+    errorCode?: string;
+}
