@@ -1,4 +1,3 @@
-import * as type from '../types';
 import { user } from '../../mock_data.json';
 
 const initialState = {
@@ -10,7 +9,7 @@ const initialState = {
 
 const moviesReducer = (state = initialState, action: any) => {
 	switch (action.type) {
-		case type.SET_VERIFY_USER_LOGIN:
+		case "SET_VERIFY_USER_LOGIN":
 			if (action.payload.loginError) {
 				return { ...state, loginError: true };
 			} else {
@@ -20,7 +19,7 @@ const moviesReducer = (state = initialState, action: any) => {
 					loginError: false
 				};
 			}
-		case type.LOGOUT_USER:
+		case "LOGOUT_USER":
 			return {
 				...state,
 				loginUser: null
