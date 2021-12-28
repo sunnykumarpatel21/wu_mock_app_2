@@ -43,8 +43,12 @@
 		{
 			"id": "1",
 			"name": "Partner 1",
-			"managerName": "naveen",
 			"email": "hello@ge.com",
+			"managerDetails": {
+				"firstName": "Naveen",
+				"lastName": "S",
+				"email": "test1@gmail.com"
+			},
 			"address": {
 				"address1": "45 rue saint-urbain ",
 				"address2": "",
@@ -56,9 +60,13 @@
 		{
 			"id": "1",
 			"name": "Partner 2",
-			"managerName": "naveen2",
 			"email": "hello2@ge.com",
-			"adsress": {
+			"managerDetails": {
+				"firstName": "Praveen",
+				"lastName": "T",
+				"email": "test2@gmail.com"
+			},
+			"address": {
 				"address1": "40 Gully St",
 				"address2": "",
 				"city": "Toronto",
