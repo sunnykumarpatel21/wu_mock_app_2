@@ -1,19 +1,61 @@
 {
     "appName": "Partner portal",
-    "Header":{
-        "logout":"Logout"
+    "Header": {
+        "logout": "Logout"
     },
-    "Footer":{
-        "title":"Footer"
+    "Footer": {
+        "title": "Footer"
     },
-    "Login":{
-        "title":"Login Form",
-        "email":"Email address",
-        "password":"Password",
-        "submit":"Submit",
-        "loginErrorMessage":"Invalid login details"
+    "Login": {
+        "title": "Login Form",
+        "email": "Email address",
+        "password": "Password",
+        "submit": "Submit",
+        "loginErrorMessage": "Invalid login details"
     },
-    "Dashboard":{
-        "greeting":"Hi"
+    "Dashboard": {
+        "greeting": "Hi",
+        "cardsOptions": {
+            "dashboard": {
+                "displayValue": "Dashboard"
+            },
+            "reports": {
+                "displayValue": "Reports"
+            },
+            "knowledge_center": {
+                "displayValue": "Knowledge Center"
+            },
+            "community_forum": {
+                "displayValue": "Community Forum"
+            },
+            "my_accounts": {
+                "displayValue": "My Accounts"
+            }
+        }
+    },
+    "MyAccounts": {
+        "title": "My Accounts",
+        "actionAddPartner": "+ Add Partner",
+        "actionAddUser": "+ Add User",
+        "actionAddRole": "+ Add Role",
+        "placeholderSearch": "Search users or partners or roles",
+        "placeholderSearch2": "Search users",
+        "userSectionTitle": "Users:",
+        "partnerSectionTitle": "Partner:",
+        "roleSectionTitle": "Roles:",
+        "name": "Name:",
+        "email": "Email:",
+        "manager": "Manager:",
+        "roleName": "Role Name:",
+        "firstName": "First name:",
+        "lastName": "Last name:",
+        "managerDetailTitle": "Manager details",
+        "badgePartner": "Partner",
+        "badgeUser": "User",
+        "badgeRole": "Role"
+    },
+    "Reports": {
+        "title": "Reports",
+        "placeholderDropown": "All types"
     }
 }

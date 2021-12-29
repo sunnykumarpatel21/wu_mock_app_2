@@ -2,7 +2,6 @@ import { NextPage } from 'next';
 import { User } from '../../../common/types/Types';
 import { cardsList } from '../../../mock_data.json';
 import { strings } from '../../../common/utils/utils';
-import common from '../../../locales/en/common.json';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import Layout from '../../../components/Layout/Layout';
@@ -35,8 +34,7 @@ const Dashboard: NextPage<Props> = ({ user }) => {
 						<div className="site-card">
 							<div className="dashboard-content">
 								<h2>
-									{/* {strings("Dashboard.greeting")} {user.firstName}! */}
-									{common.Dashboard.greeting} {user.firstName}!
+									{strings("Dashboard.greeting")} {user.firstName}!
 								</h2>
 
 								<div className="dashboard-cards">
@@ -47,7 +45,7 @@ const Dashboard: NextPage<Props> = ({ user }) => {
 											card-id={card.id}
 											onClick={() => handleCardClick(card.link)}
 										>
-											<p>{card.name}</p>
+											<p>{strings(`Dashboard.cardsOptions.${card.id}.displayValue`)}</p>
 										</div>
 									))}
 								</div>

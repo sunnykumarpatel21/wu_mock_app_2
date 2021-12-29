@@ -14,7 +14,7 @@ const LoginForm: NextPage = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const [ loginFrom, setLoginForm ] = useState({ email: '', password: '' });
+	const [loginFrom, setLoginForm] = useState({ email: '', password: '' });
 	const loginUser = useSelector((state: RootStateOrAny) => state.loginReducer.loginUser);
 	const loginError = useSelector((state: RootStateOrAny) => state.loginReducer.loginError);
 
@@ -26,7 +26,7 @@ const LoginForm: NextPage = () => {
 				navigate('/login');
 			}
 		},
-		[ loginUser ]
+		[loginUser]
 	);
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -48,12 +48,11 @@ const LoginForm: NextPage = () => {
 				<div className="site-container">
 					<div className="site-card">
 						<div className="form-container login-form">
-							{/* <h2>{strings("Login.title")}</h2> */}
-							<h2>{common.Login.title}</h2>
+							<h2>{strings("Login.title")}</h2>
 							<div className="mb-4">
 								<label htmlFor="exampleInputEmail1" className="form-label">
-									{/* {strings("Login.email")} */}
-									{common.Login.email}
+									{strings("Login.email")}
+
 								</label>
 								<input
 									type="email"
@@ -66,8 +65,8 @@ const LoginForm: NextPage = () => {
 							</div>
 							<div className="mb-4">
 								<label htmlFor="exampleInputPassword1" className="form-label">
-									{/* {strings("Login.password")} */}
-									{common.Login.password}
+									{strings("Login.password")}
+
 								</label>
 								<input
 									type="password"
@@ -79,13 +78,11 @@ const LoginForm: NextPage = () => {
 							</div>
 							{loginError && (
 								<p className="login-error" id="login-error">
-									{/* {strings("Login.loginErrorMessage")} */}
-									{common.Login.loginErrorMessage}
+									{strings("Login.loginErrorMessage")}
 								</p>
 							)}
 							<button id="login_submit" className="btn btn-block btn-secondary" onClick={handleSubmit}>
-								{/* {strings("Login.submit")} */}
-								{common.Login.submit}
+								{strings("Login.submit")}
 							</button>
 						</div>
 					</div>

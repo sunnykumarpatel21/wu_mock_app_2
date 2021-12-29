@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { user, partners, userRoles } from '../../../mock_data.json';
 import Layout from '../../../components/Layout/Layout';
 import SiteModal from '../../../components/SiteModal/SiteModal';
+import { strings } from '../../../common/utils/utils';
 
 const MyAccounts: NextPage = ({}) => {
 	const navigate = useNavigate();
@@ -55,22 +56,21 @@ const MyAccounts: NextPage = ({}) => {
 				<div className="site-container">
 					<div className="site-card">
 						<div className="accounts-content">
-							<h2>My Accounts</h2>
+							<h2>{strings("MyAccounts.title")}</h2>
 							<input
 								type="text"
 								className="searchBar"
-								placeholder={isSystemAdmin ? 'Search User/Partner/Role' : 'Search Users'}
+								placeholder={isSystemAdmin ? strings("MyAccounts.placeholderSearch") : strings("MyAccounts.placeholderSearch2")}
 								value={searchText}
 								onChange={(e) => handleSearch(e.target.value)}
 							/>
 							<div className="account-actions">
-								<button className="btn btn-outline-secondary btn-sm action-btn">+ Add User</button>
+								<button className="btn btn-outline-secondary btn-sm action-btn">{strings("MyAccounts.actionAddUser")}</button>
 								{isSystemAdmin && (
 									<button
 										className="btn btn-outline-secondary btn-sm btn-text action-btn ms-3"
 										id="add-partner"
-									>
-										+ Add Partner
+									>{strings("MyAccounts.actionAddPartner")}
 									</button>
 								)}
 								{isSystemAdmin && (
@@ -78,7 +78,7 @@ const MyAccounts: NextPage = ({}) => {
 										className="btn btn-outline-secondary btn-sm btn-text action-btn ms-3"
 										id="add-role"
 									>
-										+ Add Role
+										{strings("MyAccounts.actionAddRole")}
 									</button>
 								)}
 							</div>
@@ -87,16 +87,16 @@ const MyAccounts: NextPage = ({}) => {
 								{userData &&
 								userData.length > 0 && (
 									<div className="category-section">
-										<h4>Users:</h4>
+										<h4>{strings("MyAccounts.userSectionTitle")}</h4>
 										{userData.map((userObj, ind) => (
 											<div className="site-content-card" key={ind}>
-												<div className="card-badge user">User</div>
+												<div className="card-badge user">{strings("MyAccounts.badgeUser")}</div>
 												{/* <button className="btn-close" /> */}
 												<h6>
-													Name: <span>{userObj.firstName + ' ' + userObj.lastName}</span>
+												{strings("MyAccounts.name")} <span>{userObj.firstName + ' ' + userObj.lastName}</span>
 												</h6>
 												<h6>
-													Email: <span>{userObj.email}</span>
+												{strings("MyAccounts.email")} <span>{userObj.email}</span>
 												</h6>
 											</div>
 										))}
@@ -107,16 +107,16 @@ const MyAccounts: NextPage = ({}) => {
 										{partnersData &&
 										partnersData.length > 0 && (
 											<div className="category-section">
-												<h4>Partners:</h4>
+												<h4>{strings("MyAccounts.partnerSectionTitle")}</h4>
 												{partnersData.map((partnerObj, ind) => (
 													<div className="site-content-card" key={ind}>
-														<div className="card-badge partner">Partner</div>
+														<div className="card-badge partner">{strings("MyAccounts.badgePartner")}</div>
 														{/* <button className="btn-close" /> */}
 														<h6>
-															Name: <span>{partnerObj.name}</span>
+														{strings("MyAccounts.name")} <span>{partnerObj.name}</span>
 														</h6>
 														<h6 className="link">
-															Manager:{' '}
+														{strings("MyAccounts.manager")} :{' '}
 															<span onClick={() => handleManagerModal(ind + 1)}>
 																{partnerObj.managerDetails.firstName +
 																	' ' +
@@ -124,19 +124,19 @@ const MyAccounts: NextPage = ({}) => {
 															</span>
 															{/* Modal for manager details */}
 															<SiteModal
-																modalTitle="Manager details"
+																modalTitle={strings("MyAccounts.managerDetailTitle")}
 																modalBody={
 																	<div className="manager-modal">
 																		<div className="manager-modal-section">
-																			<h5>First name:</h5>
+																			<h5>{strings("MyAccounts.firstName")}</h5>
 																			<p>{partnerObj.managerDetails.firstName}</p>
 																		</div>
 																		<div className="manager-modal-section">
-																			<h5>Last name:</h5>
+																			<h5>{strings("MyAccounts.lastName")}</h5>
 																			<p>{partnerObj.managerDetails.lastName}</p>
 																		</div>
 																		<div className="manager-modal-section">
-																			<h5>Email:</h5>
+																			<h5>{strings("MyAccounts.email")}</h5>
 																			<p>{partnerObj.managerDetails.email}</p>
 																		</div>
 																	</div>
@@ -157,13 +157,13 @@ const MyAccounts: NextPage = ({}) => {
 										{userRolesData &&
 										userRolesData.length > 0 && (
 											<div className="category-section">
-												<h4>Roles:</h4>
+												<h4>{strings("MyAccounts.roleSectionTitle")}</h4>
 												{userRolesData.map((roleObj, ind) => (
 													<div className="site-content-card" key={ind}>
-														<div className="card-badge role">Role</div>
+														<div className="card-badge role">{strings("MyAccounts.badgeRole")}</div>
 														{/* <button className="btn-close" /> */}
 														<h6>
-															Role name: <span>{roleObj.name}</span>
+														{strings("MyAccounts.roleName")} <span>{roleObj.name}</span>
 														</h6>
 													</div>
 												))}
