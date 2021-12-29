@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { reports, reportsType } from '../../../mock_data.json';
 import Layout from '../../../components/Layout/Layout';
+import { strings } from '../../../common/utils/utils';
 
 const Reports: NextPage = ({}) => {
 	const navigate = useNavigate();
@@ -57,7 +58,7 @@ const Reports: NextPage = ({}) => {
 				<div className="site-container">
 					<div className="site-card">
 						<div className="reports-content">
-							<h2>Reports</h2>
+							<h2>{strings("Reports.title")}</h2>
 
 							<div className="filterSection">
 								<select
@@ -67,7 +68,7 @@ const Reports: NextPage = ({}) => {
 									onChange={handleFilterChange}
 								>
 									<option selected value="All">
-										All types
+										{strings("Reports.placeholderDropown")}
 									</option>
 									{reportsType.map((type) => <option value={type.id}>{type.name}</option>)}
 								</select>
