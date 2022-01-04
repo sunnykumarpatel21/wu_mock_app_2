@@ -14,7 +14,7 @@ const LoginForm: NextPage = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	const [loginFrom, setLoginForm] = useState({ email: '', password: '' });
+	const [loginFrom, setLoginForm] = useState<{email:string, password:string }>({ email: '', password: '' });
 	const loginUser = useSelector((state: RootStateOrAny) => state.main.loginUser);
 	const loginError = useSelector((state: RootStateOrAny) => state.main.loginError);
 
