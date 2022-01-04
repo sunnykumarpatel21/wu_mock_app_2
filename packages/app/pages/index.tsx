@@ -4,7 +4,6 @@ import Head from 'next/head';
 import { useSelector, RootStateOrAny } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { strings } from '../common/utils/utils';
-import common from '../locales/en/common.json';
 import Dashboard from '../module/dashboard/screens/Dashboard';
 import LoginForm from '../module/login/screens/Login';
 import MyAccounts from '../module/myAccounts/screens/my_accounts';
@@ -12,14 +11,15 @@ import Reports from '../module/reports/screens/reports';
 import CommunityForum from '../module/communityForum/screens/CommunityForum';
 import KnowledgeCenter from '../module/knowledgeCenter/screen/KnowledgeCenter';
 
+
 const Home: NextPage = () => {
 	const loginUser = useSelector((state: RootStateOrAny) => state.loginReducer.loginUser);
-
+	
 	return (
 		<div>
 			<Head>
 				{/* <title> {strings("appName")} </title> */}
-				<title> {common.appName} </title>
+				<title> {strings("appName")} </title>
 				<meta name="description" content="Landing page" />
 			</Head>
 			<Router>
@@ -35,5 +35,4 @@ const Home: NextPage = () => {
 		</div>
 	);
 };
-
 export default Home;
