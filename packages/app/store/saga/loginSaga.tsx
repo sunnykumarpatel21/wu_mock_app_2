@@ -1,12 +1,12 @@
 import { put, call, takeEvery, all } from 'redux-saga/effects';
 import { setVerifyUserLogin } from '../actions/login';
-import { fetchData } from '../../common/fetchData/fetchData';
+import { verifyUser } from '../../common/data/ApiHelper';
 import { Action } from '../types';
 import { SagaResult, User } from '../../common/types/Types';
 
 function* verifyUserLoginSaga(action: Action) {
 	if (action.type === "VERIFY_USER_LOGIN") {
-		const result: SagaResult<User> = yield call(fetchData, action.payload);
+		const result: SagaResult<User> = yield call(verifyUser, action.payload);
 		if(result.success && result.data){
 			yield put(setVerifyUserLogin(result.data));
 		}else{
