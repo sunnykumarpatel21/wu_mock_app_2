@@ -7,7 +7,8 @@ const initialState = {
 	users: user
 };
 
-const moviesReducer = (state = initialState, action: any) => {
+const loginReducer = (state = initialState, action: any) => {
+	console.log("Reducer ",action,state)
 	switch (action.type) {
 		case "SET_VERIFY_USER_LOGIN":
 			if (action.payload.loginError) {
@@ -19,6 +20,11 @@ const moviesReducer = (state = initialState, action: any) => {
 					loginError: false
 				};
 			}
+		case "SET_ACCOUNT_INFO":
+			return {
+				...state,
+				accountData: action.payload,
+			};
 		case "LOGOUT_USER":
 			return {
 				...state,
@@ -29,4 +35,4 @@ const moviesReducer = (state = initialState, action: any) => {
 	}
 };
 
-export default moviesReducer;
+export default loginReducer;

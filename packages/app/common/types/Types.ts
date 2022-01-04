@@ -55,6 +55,11 @@ export interface UserResposne {
     role: Role;
     partner?: Partner;
 }
+export interface UserAccount {
+    users: User[];
+    partners: Partner[];
+    roles: Role[];
+}
 export interface SagaResult<T = any > {
     success: boolean
     data: T 

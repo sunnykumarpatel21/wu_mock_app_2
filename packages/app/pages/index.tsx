@@ -13,7 +13,7 @@ import KnowledgeCenter from '../module/knowledgeCenter/screen/KnowledgeCenter';
 
 
 const Home: NextPage = () => {
-	const loginUser = useSelector((state: RootStateOrAny) => state.loginReducer.loginUser);
+	const loginUser = useSelector((state: RootStateOrAny) => state.main.loginUser);
 	
 	return (
 		<div>

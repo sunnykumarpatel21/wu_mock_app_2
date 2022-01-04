@@ -9,7 +9,7 @@ import { strings } from '../../../common/utils/utils';
 
 const Reports: NextPage = ({}) => {
 	const navigate = useNavigate();
-	const loginUser = useSelector((state: RootStateOrAny) => state.loginReducer.loginUser);
+	const loginUser = useSelector((state: RootStateOrAny) => state.main.loginUser);
 
 	const [ searchFilters, setSearchFilters ] = useState({
 		reportType: 'All',
