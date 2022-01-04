@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Layout from '../../../components/Layout/Layout';
 import SiteModal from '../../../components/SiteModal/SiteModal';
 import { strings } from '../../../common/utils/utils';
-import { getAccountInfo } from '../../../store/actions';
+import { getAccountData } from '../../../store/actions';
 import { Partner, Role, User } from '../../../common/types/Types';
 
 const MyAccounts: NextPage = ({ }) => {
@@ -21,12 +21,11 @@ const MyAccounts: NextPage = ({ }) => {
 	const [selectedManagerId, setSelectedManagerId] = useState(null);
 	const dispatch = useDispatch()
 	useEffect(() => {
-		console.log("Naveen -",loginUser,accountDetails)
 		if (!loginUser) {
 			navigate('/login');
 		}
 		if (!accountDetails) {
-			dispatch(getAccountInfo(loginUser))
+			dispatch(getAccountData(loginUser))
 		}
 		setUserData(accountDetails?.users);
 		setPartnersData(accountDetails?.partners);

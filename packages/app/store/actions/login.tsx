@@ -1,4 +1,4 @@
-import { User, UserAccount } from "../../common/types/Types";
+import { ReportData, User, UserAccount } from "../../common/types/Types";
 import { Action } from "../types";
 
 export const verifyUserLogin = (data: { email: '', password: '' }): Action => ({
@@ -6,12 +6,21 @@ export const verifyUserLogin = (data: { email: '', password: '' }): Action => ({
     payload: data,
 });
 
-export const getAccountInfo = (data: User): Action => ({
+export const getAccountData = (data: User): Action => ({
     type: "GET_ACCOUNT_INFO",
     payload: data,
 });
-export const setAccountInfo = (data: UserAccount): Action => ({
+export const setAccountData = (data: UserAccount): Action => ({
     type: "SET_ACCOUNT_INFO",
+    payload: data,
+});
+
+export const getReportData = (data: User): Action => ({
+    type: "GET_REPORTS",
+    payload: data,
+});
+export const setReportData = (data: ReportData): Action => ({
+    type: "SET_REPORTS",
     payload: data,
 });
 

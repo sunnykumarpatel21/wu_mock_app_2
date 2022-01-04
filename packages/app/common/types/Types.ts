@@ -60,6 +60,10 @@ export interface UserAccount {
     partners: Partner[];
     roles: Role[];
 }
+export interface ReportData {
+    reports: Report[];
+    reportType: ReportType[];
+}
 export interface SagaResult<T = any > {
     success: boolean
     data: T 

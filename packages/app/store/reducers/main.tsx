@@ -3,12 +3,11 @@ import { user } from '../../mock_data.json';
 const initialState = {
 	loginUser: null,
 	loginError: false,
-
 	users: user
 };
 
-const loginReducer = (state = initialState, action: any) => {
-	console.log("Reducer ",action,state)
+const mainReducer = (state = initialState, action: any) => {
+	console.log("Reducer ", action, state)
 	switch (action.type) {
 		case "SET_VERIFY_USER_LOGIN":
 			if (action.payload.loginError) {
@@ -25,6 +24,11 @@ const loginReducer = (state = initialState, action: any) => {
 				...state,
 				accountData: action.payload,
 			};
+		case "SET_REPORTS":
+			return {
+				...state,
+				reportData: action.payload,
+			};
 		case "LOGOUT_USER":
 			return {
 				...state,
@@ -35,4 +39,4 @@ const loginReducer = (state = initialState, action: any) => {
 	}
 };
 
-export default loginReducer;
+export default mainReducer;

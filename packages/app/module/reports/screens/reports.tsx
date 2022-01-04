@@ -1,39 +1,44 @@
 import { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import { useSelector, RootStateOrAny } from 'react-redux';
+import { useSelector, RootStateOrAny,useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
-import { reports, reportsType } from '../../../mock_data.json';
 import Layout from '../../../components/Layout/Layout';
 import { strings } from '../../../common/utils/utils';
+import { getReportData } from '../../../store/actions';
+import { ReportData } from '../../../common/types/Types';
 
 const Reports: NextPage = ({}) => {
 	const navigate = useNavigate();
 	const loginUser = useSelector((state: RootStateOrAny) => state.main.loginUser);
-
+	const reportDetails:ReportData = useSelector((state: RootStateOrAny) => state.main.reportData);
+	
 	const [ searchFilters, setSearchFilters ] = useState({
 		reportType: 'All',
 		from: '',
 		to: ''
 	});
-	const [ reportsData, setReportsData ] = useState(reports);
-
-	useEffect(
-		() => {
-			if (!loginUser) {
-				navigate('/login');
-			}
-		},
-		[ loginUser ]
+	const [ reportsData, setReportsData ] = useState(reportDetails?.reports);
+	const [ reportsType, setReportsType ] = useState(reportDetails?.reportType);
+	const dispatch = useDispatch()
+	useEffect(() => {
+		if (!loginUser) {
+			navigate('/login');
+		}
+		if (!reportDetails) {
+			dispatch(getReportData(loginUser))
+		}
+		setReportsData(reportDetails?.reports);
+		setReportsType(reportDetails?.reportType);
+	},
+		[loginUser, reportDetails]
 	);
 
-	useEffect(
-		() => {
+	useEffect(() => {
 			let reportData = [];
 			if (searchFilters.reportType !== 'All') {
-				reportData = reports.filter((report) => report.reportType == searchFilters.reportType);
+				reportData = reportsData.filter((report) => report.reportType == searchFilters.reportType);
 			} else {
-				reportData = reports;
+				reportData = reportsData;
 			}
 			if (searchFilters.from !== '') {
 				let x = new Date(searchFilters.from);
@@ -70,7 +75,7 @@ const Reports: NextPage = ({}) => {
 									<option selected value="All">
 										{strings("Reports.placeholderDropown")}
 									</option>
-									{reportsType.map((type) => <option value={type.id}>{type.name}</option>)}
+									{reportsType && reportsType.map((type) => <option value={type.id}>{type.name}</option>)}
 								</select>
 								<input
 									type="date"
